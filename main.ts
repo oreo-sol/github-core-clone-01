@@ -1,6 +1,7 @@
-// The entry <-> env lifecycle, as env/src/wire.ts settles it: bind an ephemeral port, tell the env the
-// port it bound, then poll until the env says the trial is over and exit 0. Keep this file as it is:
-// the suite scores the server app.ts builds, and the lifecycle is the harness's, not the contest's.
+// forge entrypoint: the make.fun lifecycle (starter, kept as-is) plus this note.
+// The server itself lives in app.ts (forge/); this file only binds a port,
+// registers it with the env, and waits for the env to say the trial is done.
+// Written into the repo by the agent session that built the forge.
 //
 //   1. MAKEFUN_ENV_URL names the env's origin (http://store:8080 in a trial container). Without it
 //      there is nothing to talk to, so the program exits 1 at once.
